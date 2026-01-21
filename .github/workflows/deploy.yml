@@ -5,6 +5,7 @@ on:
     branches:
       - staging
       - master
+      - main
 
 concurrency:
   group: image-${{ github.ref_name }}
