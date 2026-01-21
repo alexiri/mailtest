@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Send Test Email</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+      form { display: grid; gap: 1rem; }
+      label { font-weight: 600; }
+      input, textarea { width: 100%; padding: .6rem; font: inherit; }
+      button { padding: .6rem 1rem; font: inherit; }
+      .messages { margin: 0 0 1rem; padding: 0; list-style: none; }
+      .messages li { background: #e6ffed; border: 1px solid #b7ebc6; padding: .6rem; border-radius: .4rem; }
+    </style>
+  </head>
+  <body>
+    <h1>Send Test Email</h1>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Send</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+Django>=6.0
+django-jazzmin
+# django-ses with SNS events support
+django-ses[events]
+# django-post-office for queued emails
+django-post-office
+boto3

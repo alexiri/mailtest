@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DEBUG: "true"
+      AWS_SES_REGION_NAME: "us-east-1"
+      AWS_SES_REGION_ENDPOINT: "email.us-east-1.amazonaws.com"
+      AWS_SES_VERIFY_EVENT_SIGNATURES: "false"
+      AWS_SES_USE_BLACKLIST: "true"
+      AWS_SES_ADD_BOUNCE_TO_BLACKLIST: "true"
+      AWS_SES_ADD_COMPLAINT_TO_BLACKLIST: "true"
+    # Uncomment and set to enable SES auth
+    # AWS_ACCESS_KEY_ID: "..."
+    # AWS_SECRET_ACCESS_KEY: "..."
+    volumes:
+      - .:/app
