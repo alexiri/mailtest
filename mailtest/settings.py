@@ -81,9 +81,8 @@ POST_OFFICE = {
 
 # AWS SES (required for sending)
 AWS_SES_REGION_NAME = os.environ.get("AWS_SES_REGION_NAME", "us-east-1")
-AWS_SES_REGION_ENDPOINT = os.environ.get("AWS_SES_REGION_ENDPOINT", "email.us-east-1.amazonaws.com")
+AWS_SES_REGION_ENDPOINT = os.environ.get("AWS_SES_REGION_ENDPOINT", f"email.{AWS_SES_REGION_NAME}.amazonaws.com")
 AWS_SES_CONFIGURATION_SET = os.environ.get("AWS_SES_CONFIGURATION_SET") or None
-AWS_SES_RETURN_PATH = os.environ.get("AWS_SES_RETURN_PATH") or None
 
 # SNS events webhooks (bounces, complaints, deliveries, opens, clicks)
 AWS_SES_VERIFY_EVENT_SIGNATURES = os.environ.get("AWS_SES_VERIFY_EVENT_SIGNATURES", "false").lower() in {"1", "true", "yes", "on"}
