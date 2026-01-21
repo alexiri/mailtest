@@ -5,3 +5,4 @@ django-ses[events]
 # django-post-office for queued emails
 django-post-office
 boto3
+sdnotify
