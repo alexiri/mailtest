@@ -65,6 +65,14 @@ USE_TZ = True
 STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# If served behind HTTPS and a custom domain, set CSRF_TRUSTED_ORIGINS.
+# Example: CSRF_TRUSTED_ORIGINS=https://astra.almalinux.org
+CSRF_TRUSTED_ORIGINS = [
+    o.strip()
+    for o in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
+    if o.strip()
+]
+
 # Send email via django-post-office and SES by default.
 EMAIL_BACKEND = "post_office.EmailBackend"
 
